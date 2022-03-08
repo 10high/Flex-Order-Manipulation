@@ -1,0 +1,69 @@
+html {
+    font-size: 15px;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flexwrapper {
+    display: flex;
+    max-width: calc(100vw - 20rem);
+
+}
+
+.gridgeneric {
+    display: grid;
+    flex: 1;
+    align-items: start;
+    grid-template-rows: 3rem auto 3rem;
+    transform-origin: 0 0;
+    transition: all ease-in-out 1s;
+    
+}
+
+.grid1 {
+    background-color: red;
+    order: 1;
+}
+
+.grid1:hover {
+    z-index: 1;
+    transform: translate(100%, -1rem) scale(1.1);
+    box-shadow: 0px 0px 5px 5px rgb(221, 2, 2);
+    
+}
+
+.grid1:hover ~ .grid2 {
+    transform: translate(-100%, 0);
+}
+
+.grid2 {
+    background-color: antiquewhite;
+    order: 2;
+}
+
+.grid2:hover {
+    z-index: 1;
+    transform: translate(0, -1rem) scale(1.1);
+    box-shadow: 0px 0px 5px 5px rgb(214, 201, 184);
+}
+
+.grid3 {
+    background-color: blue;
+    order: 3;    
+}
+
+.grid3:hover {
+    z-index: 1;
+    transform: translate(-100%, -1rem) scale(1.1);
+    box-shadow: 0px 0px 5px 5px rgb(3, 3, 223);
+
+}
+
+.grid3:hover ~ .grid2 {
+    transform: translate(100%, 0);
+}

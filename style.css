@@ -1,0 +1,282 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+:root {
+    --sedan-color: hsl(31, 77%, 52%);
+    --suv-color: hsl(184, 100%, 22%);
+    --luxury-color: hsl(179, 100%, 13%);
+    --bg-color: hsl(0, 0%, 95%);
+}
+
+
+/* Mobile first */
+html {
+    box-sizing: border-box;
+    font-size: 15px;
+}
+
+body {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+}
+
+.sr-only {
+    margin: -1px;
+    clip-path: inset (50%);
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.cardflexwrapper {
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+    margin-top: 2rem;   
+}
+
+/*All flexbox grid items */
+.gridgeneric {
+    display: grid;
+    padding: 3rem;
+    max-width: 17.1rem;
+    row-gap: 2.4rem; 
+    min-width: 146px;
+}
+
+/*All grid headers */
+.gridheader {
+    color: var(--bg-color);
+    text-transform: uppercase;
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 700;
+    font-size: 2.6rem;
+}
+
+/*All grid bodies */
+.gridbody {
+    color: hsla(0, 0%, 100%, 0.75);
+    font-family: 'Lexend Deca', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.7;
+    letter-spacing: 1px;
+}
+
+/*All grid buttons */
+.gridbuttonwrapper {
+    margin-bottom: 1rem;
+    min-width: 150px;
+}
+
+
+.gridbutton {
+    text-decoration: none;
+    font-family: 'Lexend Deca', sans-serif;
+    font-weight: 400;
+    background-color: var(--bg-color);
+    border-style: solid;
+    border-color: var(--bg-color);
+    border-width: 2px;
+    border-radius: 2rem;
+    padding: 0.8rem 2rem;
+    transition: ease-in-out 0.25s;
+}
+
+.gridbutton:hover {
+background-color: hsl(0, 0%, 95%, 0);
+color: var(--bg-color);
+}
+
+
+/*Grid 1 specific | left */
+.sedangrid {
+    background-color: var(--sedan-color);
+    border-top-left-radius: 0.7rem;
+    border-top-right-radius: 0.7rem;
+    order: 1;
+    transition: all ease-in-out 1s;  
+}
+
+.sedanbutton {
+    color:var(--sedan-color)
+}
+
+.sedangrid:hover {
+    transform: translate(0, 100%) scale(1.1);
+    z-index: 1;
+    box-shadow: 0px 0px 5px 5px var(--sedan-color);
+    border-radius: 0.7rem;
+}
+
+.sedangrid:hover ~ .suvgrid {
+    transform: translate(0, -100%);
+    border-top-left-radius: 0.7rem;
+    border-top-right-radius: 0.7rem;
+}
+
+
+
+/* Grid 2 specific | Center */
+.suvgrid {
+    background-color: var(--suv-color);
+    order: 2;
+    transition: all ease-in-out 1s;
+}
+
+.suvbutton {
+    color:var(--suv-color)
+}
+
+.suvgrid:hover {
+    z-index: 1;
+    transform: scale(1.1);
+    border-radius: 0.7rem;
+    box-shadow: 0px 0px 5px 5px var(--suv-color);
+}
+
+
+/*Grid 3 specific | Right */
+.luxurygrid {
+    background-color: var(--luxury-color);
+    border-bottom-left-radius: 0.7rem;
+    border-bottom-right-radius: 0.7rem;
+    order:3;
+    transition: all ease-in-out 1s;
+}
+
+.luxurybutton {
+    color:var(--luxury-color)
+}
+
+.luxurygrid:hover {
+    transform: translate(0, -100%) scale(1.1);
+    z-index: 1;
+    border-radius: 0.7rem;
+    box-shadow: 0px 0px 5px 5px var(--luxury-color);
+}
+
+.luxurygrid:hover ~ .suvgrid {
+    transform: translate(0, 100%);
+    border-bottom-left-radius: 0.7rem;
+    border-bottom-right-radius: 0.7rem;
+}
+
+
+
+/*Desktop Version*/
+@media (min-width: 800px) {
+    .cardflexwrapper {
+        flex-direction: row;
+    }
+
+
+    .gridbuttonwrapper {
+        margin-top: 3.5rem;
+    }
+
+    /*Grid 1 specific | left */
+    .sedangrid {
+        border-top-right-radius: 0rem;
+        border-bottom-left-radius: 0.7rem;
+    }
+
+    .sedangrid:hover {
+        transform: translate(100%, -1rem) scale(1.1);
+        z-index: 1;    
+    }
+
+    .sedangrid:hover ~ .suvgrid {
+        transform: translate(-100%, 0);
+        border-top-left-radius: 0.7rem;
+        border-bottom-left-radius: 0.7rem;
+    }
+
+    
+        /*Grid 2 specific | center */
+    .suvgrid:hover {
+        transform: translate(0, -1rem) scale(1.1);
+    }
+
+        /*Grid 3 specific | right */
+    .luxurygrid {
+        border-top-right-radius: 0.7rem;
+        border-bottom-left-radius: 0rem;
+    }
+
+    .luxurygrid:hover {
+        transform: translate(-100%, -1rem) scale(1.1);
+    }
+
+    .luxurygrid:hover ~ .suvgrid {
+        transform: translate(100%, 0);
+        border-top-right-radius: 0.7rem;
+        border-bottom-right-radius: 0.7rem;
+    }
+
+}
+
+
+/*Footer */
+.attribution { 
+    margin-top: 1rem; 
+    font-size: 1rem; 
+    text-align: center;
+    display: block;
+}
+
+.attribution a {  
+    color: hsl(228, 45%, 44%); 
+}
